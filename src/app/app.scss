@@ -1,0 +1,170 @@
+.titleicon {
+  display: inline-block;
+}
+
+.titleicon div {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.titleImg {
+  display: inline-block;
+  height: 40px;
+}
+
+.scroll-content {
+  overflow-y: auto !important;
+}
+
+ion-content {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  background: url('../assets/images/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+#navbar .scroll-content {
+  background-color: white;
+  opacity: .9;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-heading {
+  font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.tagline-upper {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.tagline-mid {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.tagline-lower {
+  font-size: 1.2rem;
+}
+
+.text-expanded {
+  letter-spacing: 2px;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-xl {
+  font-size: 2.5rem;
+}
+
+.text-lg {
+  font-size: 2rem;
+}
+
+.text-md {
+  font-size: 1.7rem;
+}
+
+.text-sm {
+  font-size: 1.2rem;
+}
+
+.boxWhite {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.bg-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+hr.divider {
+  border-color: #292b2c;
+  max-width: 250px;
+}
+
+// .map-container iframe {
+//     pointer-events: none;
+// }
+// .map-container iframe.clicked {
+//     pointer-events: auto;
+// }
+.text-center {
+  text-align: center !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-black {
+  color: #000 !important;
+}
+
+.smPadding {
+  padding: 1.5rem !important;
+}
+.xsPadding {
+  padding: 0.5rem !important;
+}
+
+.smMargin {
+  margin: 1.5rem !important; //   margin-bottom: 1.5rem !important;
+}
+
+.xsMargin {
+  margin: 0.5rem !important;
+}
+
+.noVerticalMargin {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.smPaddingBottom {
+  padding-bottom: 1.5rem !important;
+}
+.xsPaddingTop {
+  padding-top: .5rem !important;
+}
+
+.toolbar-background {
+  opacity: .9;
+}
+
+// toolbar-background -> for the navbar background
+// toolbar-title -> for the navbar title
+// bar-button -> for the menu buttons
+// ion-slide {
+//   background-color: #32db64;
+// }
+// ion-slide img {
+//   height: 70vh !important;
+//   width: auto !important;
+// }
+.toolbar-ios ion-title {
+  padding: 0 !important;
+  display: flex !important;
+}
+
+// .listItemInner {
+//     $list-margin-bottom : 16px;
+// }
+.footerEmail {
+  text-decoration: none;
+}

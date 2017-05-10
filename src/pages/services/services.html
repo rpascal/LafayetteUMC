@@ -1,0 +1,22 @@
+<ion-header>
+  <heading-bar pageName="Services"></heading-bar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+
+
+  <div class="boxWhite smPaddingBottom smMargin" *ngFor="let service of services">
+
+
+    <div class="tagline-upper text-center text-heading text-shadow text-black serviceHeading">{{service.title}}</div>
+    <div class="tagline-mid text-center text-expanded text-shadow text-black ">{{service.time}}</div>
+    <div class="tagline-lower text-center text-expanded  text-black smPadding">{{service.description}}</div>
+
+
+  </div>
+
+
+</ion-content>

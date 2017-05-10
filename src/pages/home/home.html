@@ -1,0 +1,75 @@
+<ion-header>
+      <heading-bar pageName="Home"></heading-bar>
+</ion-header>
+
+
+<!--padding-->
+<ion-content>
+  <!--<div class="tagline-upper text-center text-heading text-shadow text-white">Lafayette United Methodist Church</div>
+  <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white xsMargin">6201 Lafayette Road | Medina Ohio, 44256 | (330) 725-6176</div>
+  <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white">Open Hearts. Open Minds. Open Doors.</div>-->
+
+  <div class="boxWhite smPaddingBottom ">
+
+
+
+    <ion-slides #imgSlider>
+      <ion-slide *ngFor="let slide of images">
+        <img [src]="slide.path" />
+      </ion-slide>
+    </ion-slides>
+
+    <div class="tagline-upper text-center text-heading text-shadow text-black xsMargin">Lafayette United Methodist Church</div>
+    <div class="tagline-lower text-center text-expanded text-shadow text-black xsMargin">6201 Lafayette Road | Medina Ohio, 44256 | (330) 725-6176</div>
+    <div class="tagline-lower text-center text-expanded text-shadow text-black">Open Hearts. Open Minds. Open Doors.</div>
+
+
+  </div>
+
+
+  <!--no-padding-->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6>
+        <div class="boxWhite smPadding smMargin ">
+          <hr class="divider">
+          <h2 class="text-center text-lg  noVerticalMargin"><strong>Upcoming Events</strong></h2>
+          <hr class="divider">
+
+          <angular2-fullcalendar #myCalendar [options]="calendarOptions" (initialized)="onCalendarInit($event)"></angular2-fullcalendar>
+
+        </div>
+      </ion-col>
+
+      <ion-col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6>
+        <div class="boxWhite smPadding smMargin">
+          <!--<hr class="divider">-->
+          <h2 class="text-center text-xl xsMargin"><strong>Services</strong></h2>
+          <hr class="divider">
+          <p class="text-center text-md xsMargin">Traditional Service</p>
+          <p class="text-center text-sm xsMargin">Sunday | 9:00 AM - 10:00 AM</p>
+          <hr class="divider">
+          <p class="text-center text-md xsMargin">Contemporary Service</p>
+          <p class="text-center text-sm xsMargin">Sunday | 11:00 AM - 12:15 PM</p>
+          <hr class="divider">
+          <p class="text-center text-md xsMargin">Sunday School</p>
+          <p class="text-center text-sm xsMargin">10:00 AM - 11:00 AM</p>
+          <hr class="divider">
+          <p class="text-center text-md xsMargin">Bluegrass</p>
+          <p class="text-center text-sm xsMargin">Friday | <strong> Kitchen: </strong> 5:30 PM <strong> Music: </strong> 7:00 PM</p>
+          <hr class="divider">
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <a class="footerEmail" href="mailto:info@lafayetteumc.net" target="_top" start>info@lafayetteumc.net</a>
+    <ion-buttons end>
+      © Ryan Pascal
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,47 @@
+<ion-split-pane>
+
+  <ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <img alt="logo" class="titleImg" src="../assets/images/Cross_Flame.png">
+        <ion-title class="titleicon">Lafayette UMC</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content id="navbar" class="navbar">
+      <ion-list>
+
+
+        <div *ngFor="let page of pages">
+          <div *ngIf="page.subPages">
+            <!--<ion-item-divider color="light">{{p.title}}</ion-item-divider>-->
+            <ion-list-header color="light">
+              {{page.title}}
+            </ion-list-header>
+            <button style="padding-left:4rem;"  *ngFor="let subPage of page.subPages" menuClose ion-item (click)="openPage(subPage)">
+              {{subPage.title}}
+            </button>
+          </div>
+          <div *ngIf="!page.subPages">
+            <button menuClose ion-item (click)="openPage(page)">
+              {{page.title}}
+            </button>
+          </div>
+
+
+        </div>
+
+
+        <!--<button  menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>-->
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav main [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+
+</ion-split-pane>
