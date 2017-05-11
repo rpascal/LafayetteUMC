@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { Youth } from './youth';
+import { History } from './history';
 import { HeadingBarModule } from '../../components/heading-bar/heading-bar.module'
+
+
 
 @NgModule({
   declarations: [
-    Youth,
+    History,
   ],
   imports: [
     HeadingBarModule,
-    IonicPageModule.forChild(Youth),
+    IonicPageModule.forChild(History),
   ],
   exports: [
-    Youth
+    History
   ]
 })
-export class YouthModule {}
+export class HistoryModule {}

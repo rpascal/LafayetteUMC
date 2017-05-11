@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { Youth } from './youth';
+import { MainCalendar } from './main-calendar';
 import { HeadingBarModule } from '../../components/heading-bar/heading-bar.module'
+
 
 @NgModule({
   declarations: [
-    Youth,
+    MainCalendar,
   ],
   imports: [
     HeadingBarModule,
-    IonicPageModule.forChild(Youth),
+    IonicPageModule.forChild(MainCalendar),
   ],
   exports: [
-    Youth
+    MainCalendar
   ]
 })
-export class YouthModule {}
+export class MainCalendarModule {}

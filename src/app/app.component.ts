@@ -16,18 +16,17 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: "Home" },
       { title: 'Calendar',  subPages : [
-        { title: 'Main', component: "Services" },
-        { title: 'Bluegrass', component: "Home" }
+        { title: 'Main', component: "MainCalendar" },
+        { title: 'Bluegrass', component: "BluegrassCalendar" }
       ] },
       { title: 'Services', component: "Services" },
       { title: 'Youth', component: "Youth" },
-      { title: 'Bluegrass', component: "Home" },
-      { title: 'About', component: "" },
-      { title: 'Contact', component: "Home" },
+      { title: 'Bluegrass', component: "Bluegrass" },
+      { title: 'History', component: "History" },
+      { title: 'Reach Us', component: "Contact" },
     ];
 
   }

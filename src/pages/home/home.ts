@@ -64,7 +64,7 @@ export class Home {
 
   calendarOptions: Object = {
     //height: 'parent',
-    // defaultView: 'month',
+    defaultView: 'listWeek',
 			googleCalendarApiKey: 'AIzaSyCIwgW_o0spPcW92j7zM2tBo20cSlaHe5k',
 			events: {
 			    googleCalendarId: 'ashland.edu_qr6j6r8ktce3ca9gs2io8qqkd4@group.calendar.google.com'
