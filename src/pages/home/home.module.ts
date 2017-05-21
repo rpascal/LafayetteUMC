@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { Home } from './home';
 
-import { CalendarModule } from "ap-angular2-fullcalendar";
-import { HeadingBarModule } from '../../components/heading-bar/heading-bar.module'
 
+import { HeadingBarModule } from '../../components/heading-bar/heading-bar.module'
+import { CalendarTemplateModule } from '../../components/calendar-template/calendar-template.module'
+ import { FullCalendar } from "../../providers/full-calendar";
 
 @NgModule({
   declarations: [
@@ -12,11 +13,14 @@ import { HeadingBarModule } from '../../components/heading-bar/heading-bar.modul
   ],
   imports: [
     HeadingBarModule,
+    CalendarTemplateModule,
     IonicPageModule.forChild(Home),
-    CalendarModule.forRoot()
-  ],
+    
+    // CalendarModule.forRoot()
+  ], 
   exports: [
     Home
-  ]
+  ],
+   providers:[FullCalendar,]
 })
 export class HomeModule { }

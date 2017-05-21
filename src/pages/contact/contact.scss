@@ -1,3 +1,43 @@
 page-contact {
+  .scroll {
+    height: 100%
+  }
+  #map {
+    width: 100%;
+    height: 300px;
+  }
+  ion-item,
+  ion-input,
+  ion-label {
+    border-color: rgba(0, 0, 0, 0) !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    color: black !important;
+    border-bottom-color: black !important;
+  }
+  textarea {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
 
+  //item item-block item-md item-label-floating item-input ng-untouched ng-pristine ng-valid
+  .item:not(.input-has-focus):not(.input-has-value):not(.ng-invalid) .item-inner, .item.ng-untouched .item-inner {
+    border-bottom-color: black !important;
+  } 
+  // p {
+  //     font-size: 0.8em;
+  //     color: #d2d2d2;
+  // }
+  // .swiper-slide {
+  //     display: block;
+  // }
+  // ion-label, .select-text {
+  //     margin-left: 10px;
+  // }
+  // ion-input, ion-select, ion-textarea {
+  //     background-color: #f2f2f2;
+  //     padding: 5px 10px;
+  // }
+  // .invalid {
+  //     border: 1px solid #ea6153;
+  // }
 }

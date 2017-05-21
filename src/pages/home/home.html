@@ -1,5 +1,5 @@
 <ion-header>
-      <heading-bar pageName="Home"></heading-bar>
+  <heading-bar pageName="Home"></heading-bar>
 </ion-header>
 
 
@@ -10,9 +10,6 @@
   <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white">Open Hearts. Open Minds. Open Doors.</div>-->
 
   <div class="boxWhite smPaddingBottom ">
-
-
-
     <ion-slides #imgSlider>
       <ion-slide *ngFor="let slide of images">
         <img [src]="slide.path" />
@@ -36,7 +33,10 @@
           <h2 class="text-center text-lg  noVerticalMargin"><strong>Upcoming Events</strong></h2>
           <hr class="divider">
 
-          <angular2-fullcalendar #myCalendar [options]="calendarOptions" (initialized)="onCalendarInit($event)"></angular2-fullcalendar>
+
+          <calendar-template #calendar></calendar-template>
+
+          <!--<angular2-fullcalendar #myCalendar [options]="calendarOptions" (initialized)="onCalendarInit($event)"></angular2-fullcalendar>-->
 
         </div>
       </ion-col>

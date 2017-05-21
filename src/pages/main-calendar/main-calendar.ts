@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Component, ViewChild } from '@angular/core';
+// import { CalendarComponent } from "ap-angular2-fullcalendar";
+import { FullCalendar } from "../../providers/full-calendar";
+import { CalendarTemplate, calendarViews } from '../../components/calendar-template/calendar-template'
 /**
  * Generated class for the MainCalendar page.
  *
@@ -14,11 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MainCalendar {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  @ViewChild("calendar") calendar: CalendarTemplate;
+  private googleCalendarData: Object;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fullCalendar: FullCalendar) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MainCalendar');
+    setTimeout(() => {
+      this.googleCalendarData = this.fullCalendar.getBasicCalendarData(calendarViews[calendarViews.month]);
+      this.calendar.initilizeCalenar(this.googleCalendarData);
+    }, 1000)
+
+    // setTimeout(() => {
+    //   this.calendar.changeView(calendarViews.agendaWeek);
+    // }, 3000)
+
+    console.log(this.googleCalendarData)
   }
 
 }

@@ -1,8 +1,96 @@
 <ion-header>
-      <heading-bar pageName="Reach Us"></heading-bar>
+  <heading-bar pageName="Reach Us"></heading-bar>
 </ion-header>
 
 
 <ion-content padding>
 
+  <div class="boxWhite smPadding smMargin ">
+
+    <hr class="divider">
+    <!--<h2 class="text-center text-lg">Contact <strong>Business Casual</strong></h2>-->
+    <h2 class="text-center text-lg">Contact <strong>Lafayette United Methodist Church</strong></h2>
+    <hr class="divider">
+
+
+    <ion-grid>
+      <ion-row>
+
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8>
+
+          <div #map id="map"></div>
+
+        </ion-col>
+
+        <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+          <h5 class="noVerticalMargin bold">Phone:</h5>
+          <div class="xsMargin"> (330) 725-6176</div>
+          <h5 class="noVerticalMargin  bold">Email:</h5>
+          <div class="xsMargin"><a href="mailto:info@lafayetteumc.net">info@lafayetteumc.net</a></div>
+          <h5 class="noVerticalMargin  bold">Address:</h5>
+          <div class="xsMargin">
+            6201 Lafayette Road
+            <br> Medina Ohio, 44256
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <div class="boxWhite smPadding smMargin">
+    <hr class="divider">
+    <h2 class="text-center text-lg">Contact Form</h2>
+    <hr class="divider">
+
+    <form [formGroup]="contactForm">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+            <ion-item>
+              <ion-label floating><strong>Name</strong></ion-label>
+              <ion-input formControlName="name" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+            <ion-item>
+              <ion-label floating><strong>Email</strong></ion-label>
+              <ion-input formControlName="email" type="email"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
+            <ion-item>
+              <ion-label floating><strong>Subject</strong></ion-label>
+              <ion-input formControlName="subject" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+            <ion-item>
+              <ion-label floating><strong>Message</strong></ion-label>
+              <ion-textarea formControlName="body" type="text"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <button ion-button right>Send</button>
+        </ion-row>
+      </ion-grid>
+
+    </form>
+  </div>
+
 </ion-content>
+
+<!--
+<ion-footer>
+  <ion-toolbar>
+    <a class="footerEmail" href="mailto:info@lafayetteumc.net" target="_top" start>info@lafayetteumc.net</a>
+    <ion-buttons end>
+      © Ryan Pascal
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>-->
