@@ -47,7 +47,7 @@
 
     <form [formGroup]="contactForm">
       <ion-grid>
-        <ion-row>
+        <ion-row> 
           <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
             <ion-item>
               <ion-label floating><strong>Name</strong></ion-label>
@@ -76,7 +76,7 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <button ion-button right>Send</button>
+          <button ion-button (click)="sendEmail()">Send</button>
         </ion-row>
       </ion-grid>
 

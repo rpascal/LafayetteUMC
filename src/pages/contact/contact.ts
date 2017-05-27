@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var google;
+import { Email, IMessage } from '../../providers/email';
 /**
  * Generated class for the Contact page.
  *
@@ -19,14 +20,17 @@ export class Contact {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public formBuilder: FormBuilder,
+    public emailService: Email) {
     this.contactForm = formBuilder.group({
-        name: ['',Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-        email: [''],
-        subject: [''],
-        body : ['']
-    });  
- }
+      name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      email: [''],
+      subject: [''],
+      body: ['']
+    });
+  }
 
   ionViewDidLoad() {
     this.loadMap();
@@ -54,6 +58,28 @@ export class Contact {
 
 
     console.log('done')
+  }
+
+  // api_key = 'key-c89fe3083192c25d9ad8e37d72d9a5ed';
+  // domain = 'sandboxae083769e751441dae7c2dbb1f9392a4.mailgun.org';
+  // mailgun : mailgun = ({ apiKey: this.api_key, domain: this.domain });
+  //require('mailgun-js')
+
+  sendEmail() {
+    let message: IMessage = {
+      email: "ryanpascal99@yahoo.com",
+      message: "hi",
+      name: "ryan"
+
+    };
+
+    // this.contactForm.n
+    this.emailService.sendEmail(message)
+    .subscribe(res => {
+      console.log('AppComponent Success', res);
+    }, error => {
+      console.log('AppComponent Error', error);
+    })
   }
 
 }
