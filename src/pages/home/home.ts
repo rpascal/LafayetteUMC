@@ -4,6 +4,13 @@ import { Component, ViewChild } from '@angular/core';
 // import { CalendarComponent } from "ap-angular2-fullcalendar";
 import { FullCalendar } from "../../providers/full-calendar";
 import { CalendarTemplate, calendarViews } from '../../components/calendar-template/calendar-template'
+
+
+import { GoogleAuthenticationProvider } from "../../providers/google-authentication/google-authentication";
+import { GoogleCalendarProvider } from "../../providers/google-calendar/google-calendar";
+
+
+declare var gapi;
 /**
  * Generated class for the Homes page.
  *
@@ -33,7 +40,10 @@ export class Home {
     { path: "../assets/images/8.jpeg" },];
 
 
-  constructor(public navCtrl: NavController, public fullCalendar: FullCalendar) {
+  constructor(public navCtrl: NavController,
+    public fullCalendar: FullCalendar,
+    public GoogleAuthenticationProvider: GoogleAuthenticationProvider,
+    public GoogleCalendarProvider: GoogleCalendarProvider) {
   }
 
   ngAfterViewInit() {
@@ -45,7 +55,21 @@ export class Home {
     this.imgSlider.speed = 2000;
     this.imgSlider.autoplayDisableOnInteraction = false;
 
-    
+    //this.fullCalendar.listEvents()
+
+    // this.GoogleAuthenticationProvider.login((response: any) => {
+    //   console.log("logged in")
+    //   // this.GoogleCalendarProvider.loadAppointments().then(data =>{
+    //   //   console.log("data" , data)
+    //   // })
+    //   this.GoogleCalendarProvider.listUpcomingEvents()
+
+    // })
+
+    // this.GoogleCalendarProvider.getEvents((res)=>{
+    //   console.log(res)
+    // });
+
     setTimeout(() => {
       this.googleCalendarData = this.fullCalendar.getBasicCalendarData(calendarViews[calendarViews.listWeek]);
       this.calendar.initilizeCalenar(this.googleCalendarData);
@@ -57,6 +81,7 @@ export class Home {
 
     console.log(this.googleCalendarData)
   }
+
 
 
 
