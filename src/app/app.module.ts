@@ -6,8 +6,7 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { GoogleAuthenticationProvider } from '../providers/google-authentication/google-authentication';
-import { GoogleCalendarProvider } from '../providers/google-calendar/google-calendar';
+
 // import {HTTP_PROVIDERS} from 'angular2/http';
 
 
@@ -27,8 +26,6 @@ import { GoogleCalendarProvider } from '../providers/google-calendar/google-cale
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    GoogleAuthenticationProvider,
-    GoogleCalendarProvider
   ]
 })
 export class AppModule { }

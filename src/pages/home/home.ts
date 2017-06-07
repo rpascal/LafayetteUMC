@@ -1,15 +1,11 @@
 
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { Component, ViewChild } from '@angular/core';
-// import { CalendarComponent } from "ap-angular2-fullcalendar";
+
 import { FullCalendar } from "../../providers/full-calendar";
 import { CalendarTemplate, calendarViews } from '../../components/calendar-template/calendar-template'
 
-
-import { GoogleAuthenticationProvider } from "../../providers/google-authentication/google-authentication";
 import { GoogleCalendarProvider } from "../../providers/google-calendar/google-calendar";
-
-
 declare var gapi;
 /**
  * Generated class for the Homes page.
@@ -42,7 +38,6 @@ export class Home {
 
   constructor(public navCtrl: NavController,
     public fullCalendar: FullCalendar,
-    public GoogleAuthenticationProvider: GoogleAuthenticationProvider,
     public GoogleCalendarProvider: GoogleCalendarProvider) {
   }
 

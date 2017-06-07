@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { HeadingBarModule } from '../../components/heading-bar/heading-bar.module'
 import { CalendarTemplateModule } from '../../components/calendar-template/calendar-template.module'
  import { FullCalendar } from "../../providers/full-calendar";
- import { GoogleAuthenticationProvider } from "../../providers/google-authentication/google-authentication";
  import { GoogleCalendarProvider } from "../../providers/google-calendar/google-calendar";
 
 @NgModule({
@@ -24,6 +23,6 @@ import { CalendarTemplateModule } from '../../components/calendar-template/calen
   exports: [
     Home
   ],
-   providers:[FullCalendar,GoogleAuthenticationProvider,GoogleCalendarProvider]
+   providers:[FullCalendar,GoogleCalendarProvider]
 })
 export class HomeModule { }
