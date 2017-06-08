@@ -65,10 +65,13 @@ export class Home {
     //   console.log(res)
     // });
 
-    setTimeout(() => {
-      this.googleCalendarData = this.fullCalendar.getBasicCalendarData(calendarViews[calendarViews.listWeek]);
-      this.calendar.initilizeCalenar(this.googleCalendarData);
-    }, 1000)
+    this.calendar.initilizeCalendar(this.fullCalendar.getListSettings(['ashland.edu_qr6j6r8ktce3ca9gs2io8qqkd4@group.calendar.google.com']));
+
+
+    // setTimeout(() => {
+    //   this.googleCalendarData = this.fullCalendar.getBasicCalendarData(calendarViews[calendarViews.listWeek]);
+    //   this.calendar.initilizeCalenar(this.googleCalendarData);
+    // }, 1000)
 
     // setTimeout(() => {
     //   this.calendar.changeView(calendarViews.agendaWeek);
