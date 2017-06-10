@@ -2,26 +2,42 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MenuService } from '../components/multilevel-menu/menu';
+
+
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+    providers: [MenuService]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = "Home";
 
-  pages: Array<{ title: string, component?: string, subPages? : Array<any> }>;
+  pages: Array<{ title: string, component?: string, subPages?: Array<any> }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  categories: any;
+  selectedCategory: any;
+
+  constructor(public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public MenuService: MenuService) {
     this.initializeApp();
+
+    this.categories = MenuService.getAll();
+    this.selectedCategory = MenuService.getCategoryById(1);
+
 
     this.pages = [
       { title: 'Home', component: "Home" },
-      { title: 'Calendar',  subPages : [
-        { title: 'Main', component: "MainCalendar" },
-        { title: 'Bluegrass', component: "BluegrassCalendar" }
-      ] },
+      {
+        title: 'Calendar', subPages: [
+          { title: 'Main', component: "MainCalendar" },
+          { title: 'Bluegrass', component: "BluegrassCalendar" }
+        ]
+      },
       { title: 'Services', component: "Services" },
       { title: 'Youth', component: "Youth" },
       { title: 'Bluegrass', component: "Bluegrass" },
@@ -48,6 +64,14 @@ export class MyApp {
 
   navigateToFacebook() {
     window.open('http://apache.org', '_blank', 'location=yes');
+  }
+
+  onMenuSelect(cat) {
+    console.info('In app.components: selected category', cat);
+    this.selectedCategory = cat;
+    this.nav.setRoot(cat.page, {
+      selectedCategory: cat
+    })
   }
 
 }

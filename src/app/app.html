@@ -9,12 +9,16 @@
     </ion-header>
 
     <ion-content id="navbar" class="navbar">
-      <ion-list>
 
 
-        <div *ngFor="let page of pages">
+    <multilevel-menu [categories]="categories" (onSelect)="onMenuSelect($event)" [selectedCategory]="selectedCategory"></multilevel-menu>
+
+      
+      <!--<ion-list>-->
+
+
+        <!--<div *ngFor="let page of pages">
           <div *ngIf="page.subPages">
-            <!--<ion-item-divider color="light">{{p.title}}</ion-item-divider>-->
             <ion-list-header color="light">
               {{page.title}}
             </ion-list-header>
@@ -29,13 +33,14 @@
           </div>
 
 
-        </div>
+        </div>-->
 
+            <!--<ion-item-divider color="light">{{p.title}}</ion-item-divider>-->
 
         <!--<button  menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>-->
-      </ion-list>
+      <!--</ion-list>-->
     </ion-content>
 
   </ion-menu>

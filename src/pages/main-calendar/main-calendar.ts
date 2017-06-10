@@ -3,12 +3,9 @@ import { Component, ViewChild } from '@angular/core';
 // import { CalendarComponent } from "ap-angular2-fullcalendar";
 import { FullCalendar } from "../../providers/full-calendar";
 import { CalendarTemplate, calendarViews } from '../../components/calendar-template/calendar-template'
-/**
- * Generated class for the MainCalendar page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Platform } from 'ionic-angular';
+
+
 @IonicPage()
 @Component({
   selector: 'page-main-calendar',
@@ -17,22 +14,25 @@ import { CalendarTemplate, calendarViews } from '../../components/calendar-templ
 export class MainCalendar {
 
   @ViewChild("calendar") calendar: CalendarTemplate;
-  private googleCalendarData: Object;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fullCalendar: FullCalendar) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public fullCalendar: FullCalendar,
+    public platform: Platform) {
+
   }
 
+
+
   ionViewDidLoad() {
-    setTimeout(() => {
-      this.googleCalendarData = this.fullCalendar.getBasicCalendarData(calendarViews[calendarViews.month]);
-      this.calendar.initilizeCalenar(this.googleCalendarData);
-    }, 1000)
 
-    // setTimeout(() => {
-    //   this.calendar.changeView(calendarViews.agendaWeek);
-    // }, 3000)
+    if (this.platform.is('mobile')) {
+      this.calendar.initilizeCalendar(this.fullCalendar.getListSettings(['ashland.edu_qr6j6r8ktce3ca9gs2io8qqkd4@group.calendar.google.com']));
+    } else {
+      this.calendar.initilizeCalendar(this.fullCalendar.getMonthSettings(['ashland.edu_qr6j6r8ktce3ca9gs2io8qqkd4@group.calendar.google.com']));
 
-    console.log(this.googleCalendarData)
+    }
+
   }
 
 }

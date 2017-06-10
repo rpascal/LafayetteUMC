@@ -7,15 +7,25 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { MultilevelMenuComponent } from '../components/multilevel-menu/multilevel-menu';
+
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+
+
+// BrowserAnimationsModule" or "NoopAnimationsModule
+
 // import {HTTP_PROVIDERS} from 'angular2/http';
 
 
 @NgModule({
   declarations: [
     MyApp,
+    MultilevelMenuComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

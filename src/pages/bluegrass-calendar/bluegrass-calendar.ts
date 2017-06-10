@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FullCalendar } from "../../providers/full-calendar";
+import { CalendarTemplate, calendarViews } from '../../components/calendar-template/calendar-template'
+import { Platform } from 'ionic-angular';
 
-/**
- * Generated class for the BluegrassCalendar page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-bluegrass-calendar',
@@ -14,11 +12,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BluegrassCalendar {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  @ViewChild("calendar") calendar: CalendarTemplate;
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public fullCalendar: FullCalendar,
+    public platform: Platform) {
   }
 
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BluegrassCalendar');
+
+    if (this.platform.is('mobile')) {
+      this.calendar.initilizeCalendar(this.fullCalendar.getListSettings(['ashland.edu_sd7ubri1p9i1anf37hkiig4aq0@group.calendar.google.com']));
+    } else {
+      this.calendar.initilizeCalendar(this.fullCalendar.getMonthSettings(['ashland.edu_sd7ubri1p9i1anf37hkiig4aq0@group.calendar.google.com']));
+    }
+
   }
 
 }

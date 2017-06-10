@@ -11,28 +11,26 @@ page-home {
   .swiper-container {
     display: grid;
   }
-
-
-// ion-spinner {
-//  width: 28px !important;
-//     height: 28px !important;
-//     position: absolute !important;
-//     top: 70% !important;
-//     left: 50% !important;
-//     margin-top: -14px !important;
-//     margin-left: -14px !important;
-// }
-
-
-
-// .centered-spinner {
-//     width: 28px;
-//     height: 28px;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     margin-top: -14px;
-//     margin-left: -14px;
-// }
-
+  .fc-list-view .fc-scroller {
+    min-height: 400px !important;
+    // max-height: 400px !important;
+  }
+  // ion-spinner {
+  //  width: 28px !important;
+  //     height: 28px !important;
+  //     position: absolute !important;
+  //     top: 70% !important;
+  //     left: 50% !important;
+  //     margin-top: -14px !important;
+  //     margin-left: -14px !important;
+  // }
+  // .centered-spinner {
+  //     width: 28px;
+  //     height: 28px;
+  //     position: absolute;
+  //     top: 50%;
+  //     left: 50%;
+  //     margin-top: -14px;
+  //     margin-left: -14px;
+  // }
 }
