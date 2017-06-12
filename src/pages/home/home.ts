@@ -26,13 +26,13 @@ export class Home {
 
   images: any[] = [
     { path: "../assets/images/1.jpg" },
-    // { path: "../assets/images/2.jpg" },
-    // { path: "../assets/images/3.jpg" },
-    // { path: "../assets/images/4.jpg" },
-    // { path: "../assets/images/5.jpg" },
-    // { path: "../assets/images/6.jpeg" },
+    { path: "../assets/images/2.jpg" },
+    { path: "../assets/images/3.jpg" },
+    { path: "../assets/images/4.jpg" },
+    { path: "../assets/images/5.jpg" },
+    { path: "../assets/images/6.jpeg" },
     { path: "../assets/images/7.jpg" },
-    // { path: "../assets/images/8.jpeg" },
+    { path: "../assets/images/8.jpeg" },
     ];
 
 

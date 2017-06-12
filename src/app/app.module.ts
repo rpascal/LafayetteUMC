@@ -13,12 +13,6 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
 import { SidebarMenuProvider } from '../providers/sidebar-menu/sidebar-menu';
 import { HttpModule } from '@angular/http';
 
-
-// BrowserAnimationsModule" or "NoopAnimationsModule
-
-// import {HTTP_PROVIDERS} from 'angular2/http';
-
-
 @NgModule({
   declarations: [
     MyApp,

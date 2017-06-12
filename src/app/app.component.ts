@@ -2,13 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import { MenuService } from '../components/multilevel-menu/menu';
 import { SidebarMenuProvider } from '../providers/sidebar-menu/sidebar-menu';
 
 
 @Component({
   templateUrl: 'app.html'
-  // providers: [MenuService]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
