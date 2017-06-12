@@ -36,19 +36,10 @@ export class Services {
   createServices() {
     this.services = new Array<baseService>();
     this.services.push({
-      title: "Traditional Service",
-      time: "Sunday | 9:00 AM - 10:00 AM",
-      description: `
-      Our Traditional service is at 9:00. 
-      It offers traditional hymns accompanied by organ and/or piano and occasionally worship choruses accompanied by acoustic guitars. 
-      The format of this service is "church like I remember it as a child."   
-      `
-    });
-    this.services.push({
-      title: "Contemporary Service",
+      title: "Service",
       time: "Sunday | 11:00 AM - 12:15 PM",
       description: `
-      Our Contemporary is at 11:00.
+      Our is at 11:00.
       Our talented praise team features electric and acoustic guitars, drums, bass, and keyboard. 
       This service opens with an extended period of worship before transitioning to the proclamation of the Word of God. " 
       `

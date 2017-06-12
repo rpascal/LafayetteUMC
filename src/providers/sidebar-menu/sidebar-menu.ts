@@ -1,29 +1,25 @@
-// https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2
-
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the Menu provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 
 export interface MenuItem {
   name: string;
   id?: number;
   icon?: string;
-  page? : string;
+  page?: string;
   url?: string;
-  items :  Array<MenuItem>;
+  items: Array<MenuItem>;
 }
 
 @Injectable()
-export class MenuService {
+export class SidebarMenuProvider {
 
   private categories: Array<MenuItem>;
 
-  constructor() {
+  constructor(public http: Http) {
+
     this.categories = [
       {
         name: "Home",
@@ -97,4 +93,5 @@ export class MenuService {
     });
     return filtered.length > 0 ? filtered[0] : null;
   }
+
 }

@@ -56,10 +56,10 @@ export class FullCalendar {
         // console.log('render')
       },
       eventAfterRender: function (event, element, view) {
-      //  console.log('after render')
+        //  console.log('after render')
       },
       eventAfterAllRender: function (event, element, view) {
-      //  console.log('all render')
+        //  console.log('all render')
       },
 
 
@@ -74,10 +74,14 @@ export class FullCalendar {
       googleCalendarApiKey: 'AIzaSyCIwgW_o0spPcW92j7zM2tBo20cSlaHe5k',
       firstDay: (new Date().getDay()),
       eventSources: this.getEventSources(calendarIDs),
+      displayEventTime: false,
       eventClick: function (event) {
         window.open(event.url, 'gcalevent');
         return false;
-      }
+      },
+      // eventRender: function (event, element) {
+      //  console.log(element, event)
+      // }
     };
   }
 

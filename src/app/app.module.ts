@@ -10,6 +10,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MultilevelMenuComponent } from '../components/multilevel-menu/multilevel-menu';
 
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { SidebarMenuProvider } from '../providers/sidebar-menu/sidebar-menu';
+import { HttpModule } from '@angular/http';
 
 
 // BrowserAnimationsModule" or "NoopAnimationsModule
@@ -23,6 +25,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
     MultilevelMenuComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
@@ -36,6 +39,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    SidebarMenuProvider,
   ]
 })
 export class AppModule { }
