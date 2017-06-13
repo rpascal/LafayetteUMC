@@ -9,9 +9,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MultilevelMenuComponent } from '../components/multilevel-menu/multilevel-menu';
 
-import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarMenuProvider } from '../providers/sidebar-menu/sidebar-menu';
 import { HttpModule } from '@angular/http';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { ImageSliderProvider } from '../providers/image-slider/image-slider';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,9 @@ import { HttpModule } from '@angular/http';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, // imports firebase/database, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,6 +42,7 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     SidebarMenuProvider,
+    ImageSliderProvider,
   ]
 })
 export class AppModule { }
