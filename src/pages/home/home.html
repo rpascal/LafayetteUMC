@@ -5,35 +5,26 @@
 
 <!--padding-->
 <ion-content>
-  <!--<div class="tagline-upper text-center text-heading text-shadow text-white">Lafayette United Methodist Church</div>
-  <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white xsMargin">6201 Lafayette Road | Medina Ohio, 44256 | (330) 725-6176</div>
-  <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white">Open Hearts. Open Minds. Open Doors.</div>-->
 
   <div class="boxWhite smPaddingBottom ">
-    <!--<ion-slides #imgSlider *ngIf='images.length > 0'>
-      <ion-slide *ngFor="let slide of images" >
-        <img [src]="slide" />
-      </ion-slide>
-    </ion-slides>-->
-    <!--<span *ngIf='imageSlider == null'>Loading imager slider</span>
-    
-    
-    -->
+    <div *ngIf='!slides' class="loader"></div>
 
-    <div *ngIf='imageSlider == null' class="loader"></div>
 
-    <ion-slides *ngIf='imageSlider != null' pager autoplay='500' loop=true speed='2000' autoplayDisableOnInteraction=false #imgSlider>
-      <ion-slide *ngFor="let slide of imageSlider?.urls">
-        <img [src]="slide" />
+    <ion-slides pager   #imgSlider>
+      <ion-slide *ngFor="let img of slides">
+        <img [src]="img.downloadURL | async" />
       </ion-slide>
     </ion-slides>
 
-    <div [class.loadingExtraMargin]="imageSlider == null"> </div>
+
+    <div [class.loadingExtraMargin]="!slides"> </div>
 
     <div class="tagline-upper text-center text-heading text-shadow text-black xsMargin">Lafayette United Methodist Church</div>
     <div class="tagline-lower text-center text-expanded text-shadow text-black xsMargin">6201 Lafayette Road | Medina Ohio, 44256 | (330) 725-6176</div>
     <div class="tagline-lower text-center text-expanded text-shadow text-black">Open Hearts. Open Minds. Open Doors.</div>
 
+
+    <manage-home-slider></manage-home-slider>
 
   </div>
 

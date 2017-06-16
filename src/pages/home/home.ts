@@ -4,13 +4,13 @@ import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
 
 import { FullCalendar } from "../../providers/full-calendar";
 import { CalendarTemplate, calendarViews } from '../../components/calendar-template/calendar-template'
-
+import { Observable } from 'rxjs';
 
 declare var gapi;
 
 
-import { ImageSliderProvider } from "../../providers/image-slider/image-slider";
-
+// import { ImageSliderProvider } from "../../providers/image-slider/image-slider";
+import { HomeSliderProvider, Image } from "../../providers/home-slider/home-slider"
 
 
 /**
@@ -30,73 +30,39 @@ export class Home {
   @ViewChild("imgSlider") imgSlider: Slides;
   @ViewChild("calendar") calendar: CalendarTemplate;
 
-  public imageSlider: {
-    settings: any,
-    urls: string[]
-  }
-
-  images: any[] = [
-    // { path: "../assets/images/1.jpg" },
-    // { path: "../assets/images/2.jpg" },
-    // { path: "../assets/images/3.jpg" },
-    // { path: "../assets/images/4.jpg" },
-    // { path: "../assets/images/5.jpg" },
-    // { path: "../assets/images/6.jpeg" },
-    // { path: "../assets/images/7.jpg" },
-    // { path: "../assets/images/8.jpeg" },
-  ];
-
+  slides: Image[];
+  private sliderObservable;
 
   constructor(public navCtrl: NavController,
     public fullCalendar: FullCalendar,
-    public is: ImageSliderProvider) {
-    is.getImage().then(data => {
-      console.log(data)
-      this.images = data;
+    public homeSlider: HomeSliderProvider) {
 
-      this.imageSlider = {
-        settings: {
-          pager: true,
-          autoplay: 500,
-          loop: true,
-          speed: 2000,
-          autoplayDisableOnInteraction: false
-        },
-        urls: data
-      }
-
-
-      // this.imgSlider.speed = 200;
-
-      // this.imgSlider.set
-
-
-      // this.imgSlider.startAutoplay();
-
-    })
-    //  is.getImage(data=>{
-    //    this.images.push(data);
-    //   console.log(data)
-    // })
 
   }
 
   ionViewDidLoad() {
-    // this.imgSlider.centeredSlides = true;
-    // this.imgSlider.spaceBetween = 5;
+
+
+    this.sliderObservable = this.homeSlider.getImages().subscribe(data => {
+      this.slides = data;
+      this.imgSlider.update();
+      setTimeout(() => {
+        this.imgSlider.autoplay = 2000;
+        this.imgSlider.loop = true;
+        this.imgSlider.mode = 'md'
+        this.imgSlider.speed = 2000;
+        this.imgSlider.autoplayDisableOnInteraction = false;
+        //  speed='2000' autoplayDisableOnInteraction=false
+        this.imgSlider.startAutoplay();
+      }, 500); // need to wait at least 300ms for sliders.update
+    });
+
 
     this.calendar.initilizeCalendar(this.fullCalendar.getListSettings(['ashland.edu_qr6j6r8ktce3ca9gs2io8qqkd4@group.calendar.google.com']));
-
   }
 
-
-
-
-
-
-
-
-
-
+  ionViewDidLeave() {
+    this.sliderObservable.unsubscribe();
+  }
 
 }

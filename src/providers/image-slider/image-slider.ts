@@ -28,25 +28,16 @@ export class ImageSliderProvider {
     return new Promise<any[]>((resolve, reject) => {
       let urls: Array<string> = [];
       console.log('hi')
-      this.afDB.list('/homeImages').subscribe(data => {
+      this.afDB.list('/homeSlider/').subscribe(data => {
         console.log(data)
         for (let i = 0; i < data.length; i++) {
-          const storageRef = this.firebase.storage().ref().child("homeSlider/" + data[i].$value);
+          const storageRef = this.firebase.storage().ref().child("homeSlider/" + data[i].filename);
           storageRef.getDownloadURL().then(url => {
             urls.push(url);
             if (urls.length == data.length)
               resolve(urls);
           });
-          //storageRef.getDownloadURL().then(callback);
         }
-        console.log("yo")
-        // data.forEach(item => {
-        //   const storageRef = this.firebase.storage().ref().child(item.$value);
-        //   storageRef.getDownloadURL().then(url => {
-        //     urls.push(url);
-        //   });
-        // });
-
       });
     });
   }

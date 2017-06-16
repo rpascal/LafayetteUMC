@@ -17,11 +17,16 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ImageSliderProvider } from '../providers/image-slider/image-slider';
+import { HomeSliderProvider } from '../providers/home-slider/home-slider';
+// import { ManageHomeSliderComponent } from '../components/manage-home-slider/manage-home-slider';
+// import { UploadComponent } from '../components/upload/upload';
 
 @NgModule({
   declarations: [
     MyApp,
-    MultilevelMenuComponent
+    MultilevelMenuComponent,
+    // ManageHomeSliderComponent,
+    // UploadComponent
   ],
   imports: [
     HttpModule,
@@ -43,6 +48,7 @@ import { ImageSliderProvider } from '../providers/image-slider/image-slider';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     SidebarMenuProvider,
     ImageSliderProvider,
+    HomeSliderProvider,
   ]
 })
 export class AppModule { }
