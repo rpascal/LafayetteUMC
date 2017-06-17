@@ -10,7 +10,7 @@
     <div *ngIf='!slides' class="loader"></div>
 
 
-    <ion-slides pager   #imgSlider>
+    <ion-slides pager mode='md'   #imgSlider>
       <ion-slide *ngFor="let img of slides">
         <img [src]="img.downloadURL | async" />
       </ion-slide>
@@ -24,8 +24,7 @@
     <div class="tagline-lower text-center text-expanded text-shadow text-black">Open Hearts. Open Minds. Open Doors.</div>
 
 
-    <manage-home-slider></manage-home-slider>
-
+ 
   </div>
 
 

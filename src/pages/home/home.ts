@@ -45,13 +45,14 @@ export class Home {
 
     this.sliderObservable = this.homeSlider.getImages().subscribe(data => {
       this.slides = data;
+      this.imgSlider.autoplay = 2000;
+      this.imgSlider.loop = true;
+      // this.imgSlider.mode = 'md'
+      this.imgSlider.speed = 2000;
+      this.imgSlider.autoplayDisableOnInteraction = false;
       this.imgSlider.update();
       setTimeout(() => {
-        this.imgSlider.autoplay = 2000;
-        this.imgSlider.loop = true;
-        this.imgSlider.mode = 'md'
-        this.imgSlider.speed = 2000;
-        this.imgSlider.autoplayDisableOnInteraction = false;
+
         //  speed='2000' autoplayDisableOnInteraction=false
         this.imgSlider.startAutoplay();
       }, 500); // need to wait at least 300ms for sliders.update

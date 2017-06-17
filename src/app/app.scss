@@ -85,6 +85,10 @@ h1 {
   font-size: 1.2rem;
 }
 
+.greyBackgroud{
+   background-color: rgba(0, 0, 0, 0.4);
+}
+
 .boxWhite {
   background-color: rgba(255, 255, 255, 0.9);
 }
@@ -159,6 +163,10 @@ hr.divider {
 
 .topPadding10{
   padding-top:10px;
+}
+
+.extraPadding{
+  padding: 20px;
 }
 
 // toolbar-background -> for the navbar background

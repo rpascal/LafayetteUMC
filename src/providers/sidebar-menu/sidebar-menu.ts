@@ -75,6 +75,12 @@ export class SidebarMenuProvider {
         page: "Contact",
         items: []// Required: array, even empty
       },
+      {
+        name: "Administrative",
+        id: 9,
+        page: "Administrative",
+        items: []// Required: array, even empty
+      },
 
     ];
 
