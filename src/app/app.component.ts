@@ -26,7 +26,7 @@ export class MyApp {
 
 
 
-    this.selectedCategory = sideBarMenu.getCategoryById(1);
+    //this.selectedCategory = sideBarMenu.getCategoryById(1);
 
 
 
@@ -38,17 +38,22 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-         console.log(this.nav.getActiveChildNav())
+      console.log(this.nav.getActiveChildNav())
     });
   }
 
 
   onMenuSelect(cat) {
     console.info('In app.components: selected category', cat);
-    this.selectedCategory = cat;
-    this.nav.setRoot(cat.page, {
-      selectedCategory: cat
-    })
+
+    if (cat.url) {
+      window.open(cat.url);
+    } else {
+      //this.selectedCategory = cat;
+      this.nav.setRoot(cat.page, {
+        selectedCategory: cat
+      })
+    }
   }
 
 }

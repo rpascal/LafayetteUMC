@@ -12,7 +12,7 @@
 <ion-content padding>
 
 
-  <button ion-button (click)='logout()'>Log Out</button>
+  <button *ngIf='isLoggedIn' ion-button (click)='logout()'>Log Out</button>
 
 
   <div class="boxWhite extraPadding" *ngIf='isLoggedIn != null && !isLoggedIn'>

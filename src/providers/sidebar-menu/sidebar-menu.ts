@@ -75,9 +75,16 @@ export class SidebarMenuProvider {
         page: "Contact",
         items: []// Required: array, even empty
       },
+      // {
+      //   name: "VBS",
+      //   id: 9,
+      //   //page: "Contact",
+      //   url : 'https://www.google.com/',
+      //   items: []// Required: array, even empty
+      // },
       {
         name: "Administrative",
-        id: 9,
+        id: 10,
         page: "Administrative",
         items: []// Required: array, even empty
       },
