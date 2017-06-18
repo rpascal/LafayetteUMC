@@ -74,12 +74,18 @@ export class Contact {
     };
 
     // this.contactForm.n
-    this.emailService.sendEmail(message)
-    .subscribe(res => {
-      console.log('AppComponent Success', res);
-    }, error => {
-      console.log('AppComponent Error', error);
-    })
+    // this.emailService.sendEmail(message)
+    // .subscribe(res => {
+    //   console.log('AppComponent Success', res);
+    // }, error => {
+    //   console.log('AppComponent Error', error);
+    // })
   }
+
+sendTest(recipient, subject, message){
+  this.emailService.send(recipient,subject,message)
+
+}
+
 
 }

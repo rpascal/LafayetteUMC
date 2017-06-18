@@ -7,7 +7,7 @@ import { CalendarTemplate, calendarViews } from '../../components/calendar-templ
 import { Observable } from 'rxjs';
 
 declare var gapi;
-
+declare var Swiper;
 
 // import { ImageSliderProvider } from "../../providers/image-slider/image-slider";
 import { HomeSliderProvider, Image } from "../../providers/home-slider/home-slider"
@@ -44,21 +44,41 @@ export class Home {
   ionViewDidLoad() {
 
 
+
+
+
+    var swiper = new Swiper('.swiper-container', {
+      pagination: '.swiper-pagination',
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      paginationClickable: true,
+      spaceBetween: 30,
+      centeredSlides: true,
+      speed : 1000,
+      autoplay: 2500,
+      autoplayDisableOnInteraction: false,
+      loop: true,
+      observer : true
+    });
+
+    console.log(swiper);
+
+
     this.sliderObservable = this.homeSlider.getImages().subscribe(data => {
       this.slides = data;
-      this.imgSlider.autoplay = 2000;
-      this.imgSlider.loop = true;
-      // this.imgSlider.mode = 'md'
-      this.imgSlider.speed = 2000;
-      this.imgSlider.autoplayDisableOnInteraction = false;
-      
-      this.imgSlider.update();
+      // this.imgSlider.autoplay = 2000;
+      // this.imgSlider.loop = true;
+      // // this.imgSlider.mode = 'md'
+      // this.imgSlider.speed = 2000;
+      // this.imgSlider.autoplayDisableOnInteraction = false;
 
-      setTimeout(() => {
+      // this.imgSlider.update();
 
-        //  speed='2000' autoplayDisableOnInteraction=false
-        this.imgSlider.startAutoplay();
-      }, 500); // need to wait at least 300ms for sliders.update
+      // setTimeout(() => {
+
+      //   //  speed='2000' autoplayDisableOnInteraction=false
+      //   this.imgSlider.startAutoplay();
+      // }, 500); // need to wait at least 300ms for sliders.update
     });
 
 

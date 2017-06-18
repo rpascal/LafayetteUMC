@@ -9,15 +9,31 @@
 
 
 
+
   <div class="boxWhite smPaddingBottom ">
+
     <div *ngIf='!slides' class="loader"></div>
 
 
-    <ion-slides pager mode='md' #imgSlider>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let img of slides">
+          <img [src]="img.downloadURL | async">
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+
+    <!--<ion-slides pager mode='md' #imgSlider>
       <ion-slide *ngFor="let img of slides">
         <img [src]="img.downloadURL | async" />
       </ion-slide>
-    </ion-slides>
+    </ion-slides>-->
 
 
     <div [class.loadingExtraMargin]="!slides"> </div>
