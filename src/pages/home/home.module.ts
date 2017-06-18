@@ -10,6 +10,8 @@ import { FullCalendar } from "../../providers/full-calendar";
 
 import { HomeSliderProvider } from "../../providers/home-slider/home-slider";
 
+ 
+
 @NgModule({
   declarations: [
     Home,

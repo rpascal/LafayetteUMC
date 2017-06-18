@@ -23,7 +23,12 @@ export class MyApp {
     this.initializeApp();
 
     this.categories = sideBarMenu.getAll();
-
+    sideBarMenu.getExtraLinks().subscribe(data => {
+      data.forEach(element => {
+        if (!this.categories.find(x => x.$key === element.$key))
+          this.categories.push(element)
+      });
+    });
 
 
     //this.selectedCategory = sideBarMenu.getCategoryById(1);

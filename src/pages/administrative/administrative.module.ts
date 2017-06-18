@@ -4,7 +4,7 @@ import { AdministrativePage } from './administrative';
 import { ManageHomeSliderComponentModule } from '../../components/manage-home-slider/manage-home-slider.module'
 import { HomeSliderProvider } from "../../providers/home-slider/home-slider";
 import { HeadingBarModule } from '../../components/heading-bar/heading-bar.module'
-
+import { SidebarMenuProvider } from "../../providers/sidebar-menu/sidebar-menu";
 
 @NgModule({
   declarations: [
@@ -18,6 +18,6 @@ import { HeadingBarModule } from '../../components/heading-bar/heading-bar.modul
   exports: [
     AdministrativePage
   ],
-  providers: [HomeSliderProvider]
+  providers: [HomeSliderProvider,SidebarMenuProvider]
 })
 export class AdministrativePageModule { }

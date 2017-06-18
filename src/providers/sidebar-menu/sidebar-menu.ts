@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-
-
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Observable } from 'rxjs';
 
 export interface MenuItem {
+  $key?: string,
   name: string;
   id?: number;
   icon?: string;
@@ -18,7 +19,7 @@ export class SidebarMenuProvider {
 
   private categories: Array<MenuItem>;
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public fb: AngularFireDatabase) {
 
     this.categories = [
       {
@@ -87,18 +88,45 @@ export class SidebarMenuProvider {
         id: 10,
         page: "Administrative",
         items: []// Required: array, even empty
-      },
+      }
 
     ];
 
   }
 
 
+  getExtraLinks(): Observable<MenuItem[]> {
+    // let storage = this.firebase.storage();
+    return this.fb.list('sideMenuExtras').map(itemList =>
+      itemList.map(item => {
+
+        try {
+          // var pathReference = storage.ref(item.path);
+          let result: MenuItem =
+            {
+              $key: item.$key,
+              id: item.id,
+              name: item.name,
+              url: item.url,
+              items: []
+            };
+          return result;
+        } catch (err) {
+
+        }
+      })
+    );
+
+  }
 
   // Should be an API call
   getAll() {
     return this.categories;
   }
+
+
+
+
 
   getCategoryById(id: number) {
     let filtered = this.categories.filter((item) => {
@@ -106,5 +134,18 @@ export class SidebarMenuProvider {
     });
     return filtered.length > 0 ? filtered[0] : null;
   }
+
+  deleteExtra(item: MenuItem) {
+    this.fb.object('sideMenuExtras/' + item.$key).remove()
+  }
+
+  addExtra(name : string, url : string) {
+    this.fb.list('sideMenuExtras/').push({ id: -1, name:name, url : url })
+  }
+
+
+
+
+
 
 }

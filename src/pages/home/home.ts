@@ -40,6 +40,7 @@ export class Home {
 
   }
 
+
   ionViewDidLoad() {
 
 
@@ -50,7 +51,9 @@ export class Home {
       // this.imgSlider.mode = 'md'
       this.imgSlider.speed = 2000;
       this.imgSlider.autoplayDisableOnInteraction = false;
+      
       this.imgSlider.update();
+
       setTimeout(() => {
 
         //  speed='2000' autoplayDisableOnInteraction=false

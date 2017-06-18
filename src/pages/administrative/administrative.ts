@@ -8,6 +8,9 @@ import {
 } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailValidator } from '../../validators/email';
+import { SidebarMenuProvider } from "../../providers/sidebar-menu/sidebar-menu";
+
+
 
 @IonicPage({
   name: 'Administrative',
@@ -22,13 +25,15 @@ export class AdministrativePage {
   public isLoggedIn;
 
   loginForm: FormGroup;
+  extraLinksForm: FormGroup;
   loading: Loading;
-
+  menuItems;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams, public afAuth: AngularFireAuth,
     public formBuilder: FormBuilder, public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    public sideMenu: SidebarMenuProvider) {
 
     this.loginForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required,
@@ -37,9 +42,16 @@ export class AdministrativePage {
       Validators.required])]
     });
 
+    this.extraLinksForm = formBuilder.group({
+      name: ['', Validators.compose([Validators.required])],
+      url: ['', Validators.compose([Validators.required])]
+    });
   }
 
   ionViewDidLoad() {
+
+
+    this.menuItems = this.sideMenu.getExtraLinks();
 
     const authObserver = this.afAuth.authState.subscribe(user => {
       console.log(user)
@@ -91,6 +103,21 @@ export class AdministrativePage {
       this.isLoggedIn = false;
 
     });
+  }
+
+  createExtraMenuItem() {
+
+    if (!this.extraLinksForm.valid) {
+      console.log(this.extraLinksForm.value);
+    } else {
+      this.sideMenu.addExtra(this.extraLinksForm.value.name, this.extraLinksForm.value.url);
+
+    }
+
+  }
+
+  removeItem(item){
+    this.sideMenu.deleteExtra(item);
   }
 
 }

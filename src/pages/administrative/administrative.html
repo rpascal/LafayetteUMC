@@ -11,44 +11,98 @@
 
 <ion-content padding>
 
+  <div *ngIf='isLoggedIn'>
+    <button ion-button (click)='logout()'>Log Out</button>
 
-  <button *ngIf='isLoggedIn' ion-button (click)='logout()'>Log Out</button>
+    <div class="boxWhite extraPadding">
+      <manage-home-slider></manage-home-slider>
+    </div>
+    <br>
+    <div class="boxWhite extraPadding">
+      <h2>Manage Additional Menu Items</h2>
+      <form [formGroup]="extraLinksForm" (submit)="createExtraMenuItem()" novalidate>
+
+        <ion-item>
+          <ion-label stacked>Display Text</ion-label>
+          <ion-input #name formControlName="name" type="text" placeholder="Display Text" [class.invalid]="!extraLinksForm.controls.name.valid &&
+          extraLinksForm.controls.name.dirty"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!extraLinksForm.controls.name.valid  &&
+      extraLinksForm.controls.name.dirty">
+          <p>Please enter display text.</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>URL</ion-label>
+          <ion-input #url formControlName="url" type="text" placeholder="URL" [class.invalid]="!extraLinksForm.controls.url.valid &&
+          extraLinksForm.controls.url.dirty"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!extraLinksForm.controls.url.valid  &&
+      extraLinksForm.controls.url.dirty">
+          <p>Please enter a url.</p>
+        </ion-item>
+
+        <button ion-button block type="submit">
+      Create Addtional Menu Iten
+    </button>
+
+      </form>
+
+      <ion-list>
+
+        <ion-item-sliding *ngFor="let item of menuItems | async">
+
+          <ion-item>
+            <p><strong>Display Text: </strong> {{item.name}}</p>
+            <p><strong>URL: </strong> {{item.url}}</p>
+            <button item-right ion-button color="danger" (click)="removeItem(item)"> Delete</button>
+          </ion-item>
+        </ion-item-sliding>
+
+      </ion-list>
+
+    </div>
 
 
-  <div class="boxWhite extraPadding" *ngIf='isLoggedIn != null && !isLoggedIn'>
-    <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+  </div>
+  <div *ngIf='isLoggedIn != null && !isLoggedIn'>
+    <div class="boxWhite extraPadding">
+      <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
 
-      <ion-item>
-        <ion-label stacked>Email</ion-label>
-        <ion-input #email formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls.email.valid &&
+        <ion-item>
+          <ion-label stacked>Email</ion-label>
+          <ion-input #email formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls.email.valid &&
           loginForm.controls.email.dirty"></ion-input>
-      </ion-item>
-      <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&
       loginForm.controls.email.dirty">
-        <p>Please enter a valid email.</p>
-      </ion-item>
+          <p>Please enter a valid email.</p>
+        </ion-item>
 
-      <ion-item>
-        <ion-label stacked>Password</ion-label>
-        <ion-input #password formControlName="password" type="password" placeholder="Your password" [class.invalid]="!loginForm.controls.password.valid &&
+        <ion-item>
+          <ion-label stacked>Password</ion-label>
+          <ion-input #password formControlName="password" type="password" placeholder="Your password" [class.invalid]="!loginForm.controls.password.valid &&
           loginForm.controls.password.dirty"></ion-input>
-      </ion-item>
-      <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&
       loginForm.controls.password.dirty">
-        <p>Your password needs more than 6 characters.</p>
-      </ion-item>
+          <p>Your password needs more than 6 characters.</p>
+        </ion-item>
 
-      <button ion-button block type="submit">
+        <button ion-button block type="submit">
       Login
     </button>
 
-    </form>
+      </form>
+    </div>
+
   </div>
 
 
-  <div class="boxWhite extraPadding" *ngIf='isLoggedIn'>
-    <manage-home-slider></manage-home-slider>
-  </div>
+
+
+
+
 
 
 
