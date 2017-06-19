@@ -58,6 +58,7 @@ export class Home {
       autoplay: 2500,
       autoplayDisableOnInteraction: false,
       loop: true,
+      loopAdditionalSlides : 2,
       observer : true
     });
 
