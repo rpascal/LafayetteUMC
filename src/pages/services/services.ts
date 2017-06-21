@@ -38,21 +38,22 @@ export class Services {
     this.services.push({
       title: "Service",
       time: "Sunday | 11:00 AM - 12:15 PM",
-      description: `
-      Our is at 11:00.
-      Our talented praise team features electric and acoustic guitars, drums, bass, and keyboard. 
-      This service opens with an extended period of worship before transitioning to the proclamation of the Word of God. " 
-      `
+      description : ''
+      // description: `
+      // Our is at 11:00.
+      // Our talented praise team features electric and acoustic guitars, drums, bass, and keyboard. 
+      // This service opens with an extended period of worship before transitioning to the proclamation of the Word of God. " 
+      // `
     });
-    this.services.push({
-      title: "Sunday School",
-      time: "10:00 AM - 11:00 AM",
-      description: `
-      Sunday class available for all ages. 
-      Nursery for 0 to 5, elementary for 1st to 6th, youth for 7th to 12th. 
-      There is also adult class, couples class, and women’s Bible study. 
-      `
-    });
+    // this.services.push({
+    //   title: "Sunday School",
+    //   time: "10:00 AM - 11:00 AM",
+    //   description: `
+    //   Sunday class available for all ages. 
+    //   Nursery for 0 to 5, elementary for 1st to 6th, youth for 7th to 12th. 
+    //   There is also adult class, couples class, and women’s Bible study. 
+    //   `
+    // });
     this.services.push({
       title: "Children Church",
       time: "Sunday | 11:00 AM - 12:15 PM",

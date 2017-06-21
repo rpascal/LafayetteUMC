@@ -32,6 +32,10 @@ export class Contact {
     });
   }
 
+    ionWillEnter() {
+    return true;
+  }
+
   ionViewDidLoad() {
     this.loadMap();
   }

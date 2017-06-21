@@ -29,23 +29,29 @@ export class SidebarMenuProvider {
         items: []// Required: array, even empty
       },
       {
-        name: "Calendars",
-        // id: ,
-        items: [// Required: array, even empty
-          {
-            name: "Main",
-            page: "MainCalendar",
-            id: 2,
-            items: []// Required: array, even empty
-          },
-          {
-            name: "Bluegrass",
-            page: "BluegrassCalendar",
-            id: 3,
-            items: []// Required: array, even empty
-          },
-        ]
+        name: "Calendar",
+        page: "MainCalendar",
+        id: 2,
+        items: []// Required: array, even empty
       },
+      // {
+      //   name: "Calendars",
+      //   // id: ,
+      //   items: [// Required: array, even empty
+      //     {
+      //       name: "Main",
+      //       page: "MainCalendar",
+      //       id: 2,
+      //       items: []// Required: array, even empty
+      //     },
+      //     {
+      //       name: "Bluegrass",
+      //       page: "BluegrassCalendar",
+      //       id: 3,
+      //       items: []// Required: array, even empty
+      //     },
+      //   ]
+      // },
       {
         name: "Services",
         id: 4,
@@ -139,8 +145,8 @@ export class SidebarMenuProvider {
     this.fb.object('sideMenuExtras/' + item.$key).remove()
   }
 
-  addExtra(name : string, url : string) {
-    this.fb.list('sideMenuExtras/').push({ id: -1, name:name, url : url })
+  addExtra(name: string, url: string) {
+    this.fb.list('sideMenuExtras/').push({ id: -1, name: name, url: url })
   }
 
 

@@ -34,6 +34,11 @@
             6201 Lafayette Road
             <br> Medina Ohio, 44256
           </div>
+          <h5 class="noVerticalMargin  bold">Developed By:</h5>
+          <div class="xsMargin">
+            Ryan Pascal
+            <br> <a href="mailto:ryanpascal99@yahoo.com">ryanpascal99@yahoo.com</a>
+          </div>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -47,7 +52,7 @@
 
     <form [formGroup]="contactForm">
       <ion-grid>
-        <ion-row> 
+        <ion-row>
           <ion-col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4>
             <ion-item>
               <ion-label floating><strong>Name</strong></ion-label>
@@ -91,22 +96,22 @@
 
 
 
-   <ion-list>
-        <ion-item>
-            <ion-label floating>Recipient (To)</ion-label>
-            <ion-input type="text" [(ngModel)]="recipient"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>Subject</ion-label>
-            <ion-input type="text" [(ngModel)]="subject"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label floating>Message</ion-label>
-            <ion-textarea [(ngModel)]="message"></ion-textarea>
-        </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Recipient (To)</ion-label>
+        <ion-input type="text" [(ngModel)]="recipient"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Subject</ion-label>
+        <ion-input type="text" [(ngModel)]="subject"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Message</ion-label>
+        <ion-textarea [(ngModel)]="message"></ion-textarea>
+      </ion-item>
     </ion-list>
     <div padding>
-        <button block (click)="sendTest(recipient, subject, message)">Send</button>
+      <button block (click)="sendTest(recipient, subject, message)">Send</button>
     </div>
 
 

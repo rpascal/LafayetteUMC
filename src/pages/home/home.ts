@@ -41,6 +41,7 @@ export class Home {
   }
 
 
+
   ionViewDidLoad() {
 
 
@@ -54,12 +55,12 @@ export class Home {
       paginationClickable: true,
       spaceBetween: 30,
       centeredSlides: true,
-      speed : 1000,
+      speed: 1000,
       autoplay: 2500,
       autoplayDisableOnInteraction: false,
       loop: true,
-      loopAdditionalSlides : 2,
-      observer : true
+      loopAdditionalSlides: 2,
+      observer: true
     });
 
     console.log(swiper);
