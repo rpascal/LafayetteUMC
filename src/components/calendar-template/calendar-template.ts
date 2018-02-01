@@ -1,8 +1,8 @@
-import { Component, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 // import * as $ from 'jquery';
-declare var fullCalendar;
+// declare var fullCalendar;
 declare var $: any
 
 export enum calendarViews {

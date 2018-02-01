@@ -3,10 +3,10 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { FirebaseApp } from 'angularfire2';
 import "firebase/storage";
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { UUID } from 'angular2-uuid';
-
+import 'rxjs/add/operator/map'
 
 export interface Image {
   path: string;
@@ -32,11 +32,11 @@ export class HomeSliderProvider {
 
   getImages(): Observable<Image[]> {
     let storage = this.firebase.storage();
-    return this.fb.list(this.referencePath).map(itemList =>
+    return this.fb.list(this.referencePath).snapshotChanges().map(itemList =>
       itemList.map(item => {
         try {
-          var pathReference = storage.ref(item.path);
-          let result: Image = { $key: item.$key, downloadURL: pathReference.getDownloadURL(), path: item.path, filename: item.filename };
+          var pathReference = storage.ref(item.payload.val().path);
+          let result: Image = { $key: item.key, downloadURL: pathReference.getDownloadURL(), path: item.payload.val().path, filename: item.payload.val().filename };
           return result;
         } catch (err) {
 

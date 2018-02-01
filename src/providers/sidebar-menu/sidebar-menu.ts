@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase,AngularFireAction } from 'angularfire2/database';
+
 import { Observable } from 'rxjs';
+import { DataSnapshot } from '@firebase/database-types';
+
 
 export interface MenuItem {
   $key?: string,
@@ -103,17 +106,17 @@ export class SidebarMenuProvider {
 
   getExtraLinks(): Observable<MenuItem[]> {
     // let storage = this.firebase.storage();
-    return this.fb.list('sideMenuExtras').map(itemList =>
-      itemList.map(item => {
+    return this.fb.list('sideMenuExtras').snapshotChanges().map(itemList =>
+      itemList.map((item) => {
 
         try {
           // var pathReference = storage.ref(item.path);
           let result: MenuItem =
             {
-              $key: item.$key,
-              id: item.id,
-              name: item.name,
-              url: item.url,
+              $key: item.key,
+              id: item.payload.val().id,
+              name: item.payload.val().name,
+              url: item.payload.val().url,
               items: []
             };
           return result;
