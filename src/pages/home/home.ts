@@ -11,7 +11,7 @@ declare var Swiper;
 
 // import { ImageSliderProvider } from "../../providers/image-slider/image-slider";
 import { HomeSliderProvider, Image } from "../../providers/home-slider/home-slider"
-
+import { FacebookService, InitParams } from 'ngx-facebook';
 
 /**
  * Generated class for the Homes page.
@@ -35,8 +35,16 @@ export class Home {
 
   constructor(public navCtrl: NavController,
     public fullCalendar: FullCalendar,
-    public homeSlider: HomeSliderProvider) {
+    public homeSlider: HomeSliderProvider,
+    private fb: FacebookService) {
 
+    let initParams: InitParams = {
+      appId: '147008445987572',
+      xfbml: true,
+      version: 'v2.8'
+    };
+
+    fb.init(initParams);
 
   }
 
