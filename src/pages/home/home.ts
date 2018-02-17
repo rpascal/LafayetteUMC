@@ -1,6 +1,6 @@
 
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
-import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import { Component, ViewChild, ViewChildren, QueryList, HostListener, HostBinding, ElementRef } from '@angular/core';
 
 import { FullCalendar } from "../../providers/full-calendar";
 import { CalendarTemplate, calendarViews } from '../../components/calendar-template/calendar-template'
@@ -9,9 +9,10 @@ import { Observable } from 'rxjs';
 declare var gapi;
 declare var Swiper;
 
-// import { ImageSliderProvider } from "../../providers/image-slider/image-slider";
 import { HomeSliderProvider, Image } from "../../providers/home-slider/home-slider"
-import { FacebookService, InitParams } from 'ngx-facebook';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+
 
 /**
  * Generated class for the Homes page.
@@ -29,32 +30,36 @@ export class Home {
 
   @ViewChild("imgSlider") imgSlider: Slides;
   @ViewChild("calendar") calendar: CalendarTemplate;
+  @ViewChild('facebookContainer') facebookContainer: ElementRef;
 
   slides: Image[];
   private sliderObservable;
 
-  constructor(public navCtrl: NavController,
-    public fullCalendar: FullCalendar,
-    public homeSlider: HomeSliderProvider,
-    private fb: FacebookService) {
 
-    let initParams: InitParams = {
-      appId: '147008445987572',
-      xfbml: true,
-      version: 'v2.8'
-    };
+  facebookWidth: number = 400;
+  facebookHeight: number = 500;
+  facebookSrc: SafeResourceUrl;
 
-    fb.init(initParams);
 
+  @HostListener('window:resize', ['$event.target'])
+  onResize() {
+    this.refreshFacebook();
   }
 
 
+  constructor(public navCtrl: NavController,
+    public fullCalendar: FullCalendar,
+    public homeSlider: HomeSliderProvider,
+    public sanitizer: DomSanitizer) {
+
+  }
+
+  ngAfterViewInit() {
+    this.refreshFacebook();
+  }
+
 
   ionViewDidLoad() {
-
-
-
-
 
     var swiper = new Swiper('.swiper-container', {
       pagination: '.swiper-pagination',
@@ -97,6 +102,28 @@ export class Home {
 
   ionViewDidLeave() {
     this.sliderObservable.unsubscribe();
+  }
+
+
+  refreshFacebook() {
+    var containerWidth = +this.facebookContainer.nativeElement.clientWidth - 30;//this.facebookContainer.clientWidth;
+    if (containerWidth > 500)
+      containerWidth = 500;
+    var containerHeight = 500;
+    var src =
+      "https://www.facebook.com/plugins/page.php" +
+      "?href=https://www.facebook.com/LafayetteUMC.net/" +
+      "&tabs=timeline,events" +
+      "&width=" +
+      containerWidth +
+      "&height=" +
+      containerHeight +
+      "&147008445987572";
+
+    this.facebookWidth = containerWidth;
+    this.facebookHeight = containerHeight;
+
+    this.facebookSrc = this.sanitizer.bypassSecurityTrustResourceUrl(src);
   }
 
 }

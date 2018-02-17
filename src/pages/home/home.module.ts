@@ -9,8 +9,6 @@ import { FullCalendar } from "../../providers/full-calendar";
 
 
 import { HomeSliderProvider } from "../../providers/home-slider/home-slider";
-import { FacebookModule } from 'ngx-facebook';
-
 
 
 @NgModule({
@@ -22,7 +20,6 @@ import { FacebookModule } from 'ngx-facebook';
     HeadingBarModule,
     CalendarTemplateModule,
     IonicPageModule.forChild(Home),
-    FacebookModule.forRoot()
     // CalendarModule.forRoot()
   ],
   exports: [
