@@ -1,4 +1,4 @@
-import { Component , ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HomeSliderProvider, Image } from '../../providers/home-slider/home-slider'
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,7 @@ export class ManageHomeSliderComponent {
   imageList: Observable<Image[]>;
 
 
-@ViewChild('form') form;
+  @ViewChild('form') form;
 
   public buttonDisabled = false;
   constructor(public hs: HomeSliderProvider) {
@@ -29,7 +29,7 @@ export class ManageHomeSliderComponent {
       let selectedFile = files[i];
       this.hs.upload(selectedFile);
     }
-    
+
     this.form.nativeElement.reset()
     this.buttonDisabled = false;
   }

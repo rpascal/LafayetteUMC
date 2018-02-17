@@ -13,6 +13,7 @@ export interface Image {
   filename: string;
   downloadURL?: string;
   $key?: string;
+  orderBy: number;
 }
 
 @Injectable()
@@ -23,7 +24,7 @@ export class HomeSliderProvider {
   private firebase: any;
 
 
-  constructor( @Inject(FirebaseApp) firebaseApp: any, public http: Http, public fb: AngularFireDatabase) {
+  constructor(@Inject(FirebaseApp) firebaseApp: any, public http: Http, public fb: AngularFireDatabase) {
     this.firebase = firebaseApp;
   }
 
@@ -36,31 +37,28 @@ export class HomeSliderProvider {
       itemList.map(item => {
         try {
           var pathReference = storage.ref(item.payload.val().path);
-          let result: Image = { $key: item.key, downloadURL: pathReference.getDownloadURL(), path: item.payload.val().path, filename: item.payload.val().filename };
+          let result: Image = {
+            $key: item.key,
+            downloadURL: pathReference.getDownloadURL(),
+            path: item.payload.val().path,
+            filename: item.payload.val().filename,
+            orderBy: item.payload.val().orderBy || 9999
+          };
           return result;
         } catch (err) {
 
         }
-      })
+      }).sort(function(a, b){return a.orderBy - b.orderBy})
     );
 
   }
 
   upload(file: File) {
-
     let storageRef = this.firebase.storage().ref();
-
-    // let success = false;
-    // let files = (<HTMLInputElement>document.getElementById('file')).files;
-    // for (let i = 0; i < files.length; i++) {
-    // let selectedFile = files[i];
 
     let uuid = UUID.UUID();
 
-
-
     let selectedFile = file;
-    // selectedFile. = uuid + selectedFile.name;
     let af = this.fb;
     let folder = this.referencePath;
     let path = `/${this.referencePath}/${uuid}/${selectedFile.name}`;
@@ -68,8 +66,6 @@ export class HomeSliderProvider {
     iRef.put(selectedFile).then((snapshot) => {
       af.list(`/${folder}/`).push({ path: path, filename: uuid + "/" + selectedFile.name })
     });
-
-    //}
 
 
   }
@@ -79,8 +75,8 @@ export class HomeSliderProvider {
 
     this.firebase.storage().ref().child(storagePath).delete()
       .then(
-      () => { },
-      (error) => console.error("Error deleting stored file", storagePath)
+        () => { },
+        (error) => console.error("Error deleting stored file", storagePath)
       );
 
     this.fb.object(referencePath).remove()
