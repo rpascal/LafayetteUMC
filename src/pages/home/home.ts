@@ -1,12 +1,10 @@
 
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
-import { Component, ViewChild, ViewChildren, QueryList, HostListener, HostBinding, ElementRef } from '@angular/core';
+import { IonicPage, NavController, Slides } from 'ionic-angular';
+import { Component, ViewChild, HostListener, HostBinding, ElementRef } from '@angular/core';
 
 import { FullCalendar } from "../../providers/full-calendar";
 import { CalendarTemplate, calendarViews } from '../../components/calendar-template/calendar-template'
-import { Observable } from 'rxjs';
 
-declare var gapi;
 declare var Swiper;
 
 import { HomeSliderProvider, Image } from "../../providers/home-slider/home-slider"
