@@ -27,9 +27,9 @@ export class MainCalendar {
   ionViewDidLoad() {
 
     if (this.platform.is('mobile')) {
-      this.calendar.initilizeCalendar(this.fullCalendar.getListSettings(['ashland.edu_qr6j6r8ktce3ca9gs2io8qqkd4@group.calendar.google.com']));
+      this.calendar.initilizeCalendar(this.fullCalendar.getListSettings(['lafayetteumcmailing@gmail.com']));
     } else {
-      this.calendar.initilizeCalendar(this.fullCalendar.getMonthSettings(['ashland.edu_qr6j6r8ktce3ca9gs2io8qqkd4@group.calendar.google.com']));
+      this.calendar.initilizeCalendar(this.fullCalendar.getMonthSettings(['lafayetteumcmailing@gmail.com']));
 
     }
 

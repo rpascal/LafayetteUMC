@@ -13,7 +13,7 @@ export class FullCalendar {
   public getBasicCalendarData(defaultView) {
     return {
       apiKey: "AIzaSyCIwgW_o0spPcW92j7zM2tBo20cSlaHe5k",
-      googleCalendarID: "ashland.edu_qr6j6r8ktce3ca9gs2io8qqkd4@group.calendar.google.com",
+      googleCalendarID: "lafayetteumcmailing@gmail.com",
       defaultView: defaultView
     };
   }
