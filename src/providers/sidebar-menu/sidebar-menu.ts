@@ -1,10 +1,9 @@
+import 'rxjs/add/operator/map';
+
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { AngularFireDatabase,AngularFireAction } from 'angularfire2/database';
-
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import { DataSnapshot } from '@firebase/database-types';
 
 
 export interface MenuItem {
@@ -29,6 +28,12 @@ export class SidebarMenuProvider {
         name: "Home",
         page: "Home",
         id: 1,
+        items: []// Required: array, even empty
+      },
+      {
+        name: "Events",
+        page: "EventsPage",
+        id: 11,
         items: []// Required: array, even empty
       },
       {

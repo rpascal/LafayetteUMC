@@ -47,4 +47,15 @@ multilevel-menu {
       border: none;
     }
   }
+
+  ion-item{
+    cursor: pointer;
+  }
+
+  ion-item:hover{
+    background-color: whitesmoke
+  }
+
 }
+
+
